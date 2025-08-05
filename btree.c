@@ -309,8 +309,8 @@ void b_tree_insert_nonfull(BTree* tree, int64_t root_offset, int k){
     while(i >= 0 && k < x->keys[i]) {
       i--;
     }
-    i++; //the index correct is after the keys
-    //we nee check if the child is full
+    i++; //the correct index is after the keys
+    //we need check if the child is full
     BTreeNode* child = disk_read(tree, x->c[i]);
     if(child->n == 2 * T - 1){
       b_tree_split_child(tree, x, i);
@@ -397,7 +397,7 @@ void print_b_tree_recursive(BTree* tree, int64_t node_offset, int level) {
         printf("  ");
     }
 
-        printf("Node at offset %lld (n=%d, leaf=%s): [", (long long)node->self_offset, node->n, node->leaf ? "yes" : "no");
+    printf("Node at offset %lld (n=%d, leaf=%s): [", (long long)node->self_offset, node->n, node->leaf ? "yes" : "no");
     for (int i = 0; i < node->n; i++) {
         printf("%d%s", node->keys[i], (i == node->n - 1) ? "" : ", ");
     }
@@ -441,7 +441,7 @@ int main(void) {
 
     printf("========= STARTING B-TREE TESTS =========\n\n");
 
-    // --- TEST CASE 1: Valori strani, duplicati, negativi e limiti ---
+    // --- TEST CASE 1 ---
     printf("--- TEST CASE 1: Duplicate, Negative, and Boundary Values ---\n");
     remove(filename);
     tree = b_tree_create(filename);
@@ -467,7 +467,7 @@ int main(void) {
     printf("--- TEST CASE 1 COMPLETE ---\n\n");
 
 
-    // --- TEST CASE 2: Stress Test con inserimento sequenziale ---
+    // --- TEST CASE 2 ---
     printf("--- TEST CASE 2: Bulk Sequential Insertion (Stress Test) ---\n");
     remove(filename);
     tree = b_tree_create(filename);
