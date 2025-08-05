@@ -397,7 +397,7 @@ void print_b_tree_recursive(BTree* tree, int64_t node_offset, int level) {
         printf("  ");
     }
 
-        printf("Node at offset %lld (n=%d, leaf=%s): [", (long long)node->self_offset, node->n, node->leaf ? "yes" : "no");
+    printf("Node at offset %lld (n=%d, leaf=%s): [", (long long)node->self_offset, node->n, node->leaf ? "yes" : "no");
     for (int i = 0; i < node->n; i++) {
         printf("%d%s", node->keys[i], (i == node->n - 1) ? "" : ", ");
     }
