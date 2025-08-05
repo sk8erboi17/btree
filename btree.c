@@ -309,8 +309,8 @@ void b_tree_insert_nonfull(BTree* tree, int64_t root_offset, int k){
     while(i >= 0 && k < x->keys[i]) {
       i--;
     }
-    i++; //the index correct is after the keys
-    //we nee check if the child is full
+    i++; //the correct index is after the keys
+    //we need check if the child is full
     BTreeNode* child = disk_read(tree, x->c[i]);
     if(child->n == 2 * T - 1){
       b_tree_split_child(tree, x, i);
