@@ -441,7 +441,7 @@ int main(void) {
 
     printf("========= STARTING B-TREE TESTS =========\n\n");
 
-    // --- TEST CASE 1: Valori strani, duplicati, negativi e limiti ---
+    // --- TEST CASE 1 ---
     printf("--- TEST CASE 1: Duplicate, Negative, and Boundary Values ---\n");
     remove(filename);
     tree = b_tree_create(filename);
@@ -467,7 +467,7 @@ int main(void) {
     printf("--- TEST CASE 1 COMPLETE ---\n\n");
 
 
-    // --- TEST CASE 2: Stress Test con inserimento sequenziale ---
+    // --- TEST CASE 2 ---
     printf("--- TEST CASE 2: Bulk Sequential Insertion (Stress Test) ---\n");
     remove(filename);
     tree = b_tree_create(filename);
